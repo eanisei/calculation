@@ -1,14 +1,11 @@
 let money, 
-
  income, 
-
  addExpenses, 
-
  deposit, 
-
  mission, 
-
- period
+ period;
 
 
  alert('Step 1 made');
+
+ console.log('Congratulations');
