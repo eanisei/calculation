@@ -24,4 +24,4 @@ let budgetDay = money/30;
  addExpenses.toLowerCase();
  console.log(addExpenses.split(', '));
 
- console.log(budgetDay);
+ console.log(Math.round(budgetDay));
