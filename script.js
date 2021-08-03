@@ -1,10 +1,4 @@
 let money = 20000; 
-let income = 'freelance'; 
-let addExpenses = 'food, rent, eating out';
-let deposit = false;
-let mission = 1000000; 
-let period = 8;
-
 let addExpenses = 'food, rent, having fun'; 
 let deposit = false; 
 let mission = 1000000; 
@@ -35,6 +29,5 @@ let budgetDay = money/30;
  // 2) Спрашиваем у пользователя “Ваш месячный доход?” и результат 
  // сохраняем в переменную money
 
-
- money = prompt("Ваш месячный доход?");
- console.log(money);
+ question = prompt('Ваш месячный доход?');
+ console.log(question)
