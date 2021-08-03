@@ -36,3 +36,5 @@ let budgetDay = money/30;
  // сохраняем в переменную money
 
 
+ money = prompt("Ваш месячный доход?");
+ console.log(money);
