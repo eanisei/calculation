@@ -30,3 +30,9 @@ let budgetDay = money/30;
  console.log(addExpenses.split(', '));
 
  console.log(Math.round(budgetDay));
+
+
+ // 2) Спрашиваем у пользователя “Ваш месячный доход?” и результат 
+ // сохраняем в переменную money
+
+
