@@ -44,7 +44,7 @@ let question = prompt('Ваш месячный доход?');
 
 let question2 = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 addExpenses = question2;
-console.log(addExpenses.split(', '));
+console.log(addExpenses.split(',' && ', '));
 
 let question3 = confirm('Есть ли у вас депозит в банке?');
 deposit = Boolean(question3);
@@ -55,37 +55,39 @@ amount1,
 amount2
 
 
-    for(let i = 0; i < 2; i++) {
+    for(let i = 0; i < 4; i++) {
 
-       let expenses = prompt('Введите обязательную статью расходов?');
+
+        if (i === 0) {
+            let expensesq1 = prompt('Введите обязательную статью расходов?');
+            expenses1 = String(expensesq1);
+            console.log(expenses1);
+        } 
+        
 
         if (i === 1) {
-            expenses1 = String(expenses);
-            console.log(expenses1);
-        } else {
-            expenses2 = String(expenses);
+            let amountq1 = prompt('Во сколько это обойдется?');
+            amount1 = Number(amountq1);
+             console.log(amount1);
+         }
+
+
+        if (i === 2) {
+            let expensesq2 = prompt('Введите обязательную статью расходов?');
+            expenses2 = String(expensesq2);
             console.log(expenses2);
+        }
+
+ 
+        if (i === 3) {
+            let amountq2 = prompt('Во сколько это обойдется?');
+            amount2 = Number(amountq2);
+            console.log(amount2);
         }
  
    
     }
  
-    for(let a = 0; a < 2; a++) {
-
-        let amount = prompt('Во сколько это обойдется?');
- 
-         if (a === 1) {
-            amount1 = Number(amount);
-             console.log(amount1);
-         } else {
-            amount2 = Number(amount);
-             console.log(amount2);
-         }
-  
-    
-     }
-
-
 
 let budgetMonth = money-(amount1+amount2);
 if (budgetMonth < 0 ) {
@@ -95,9 +97,12 @@ else {
 console.log('Бюджет на месяц: ' + (budgetMonth));
 }
 
-period = budgetMonth / mission;
-if(period <= 0) {
+period =  mission / budgetMonth;
+if(period < 0) {
     console.log('Нужно выйти в + !');
+}
+else if(budgetMonth === 0) {
+    console.log('Нужно срочно копить денег и идти к достижению целей!'); 
 }
 else {
 console.log('Цель будет достигнута за ' + Math.round(period) + ' месяцев(-а)');
@@ -125,6 +130,6 @@ if (budgetDay >= 1200) {
 }
 
 
-
+//3) https://skr.sh/s9OMSZ4kLb7 - достижение цели не считается при любых данных
 
 
