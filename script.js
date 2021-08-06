@@ -19,77 +19,31 @@ let budgetDay = money/30;
 
 let question = prompt('Ваш месячный доход?');
 
-// Boolean(question);
-// if(!isNaN()) {
-//     money = question;
-// } else {
-//     question === false;
-//     let valid = prompt('Введите доход числом!');
-
-//     let i = valid === true ? 1 : 0;
-//     console.log(i);
-
-// }
-
-// if(isNaN(question)) {
-//    console.log(Boolean(!question));
-//    alert('Введите доход числом!');
-
    if (isNaN(question)) {
        prompt('Пожалуйста, введите число, иначе будет ошибка!');
    }
 
    money = question;
 
-
 let question2 = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 addExpenses = question2;
-console.log(addExpenses.split(',' && ', '));
+console.log(addExpenses.split(',' || ', ' || ' ,'));
 
 let question3 = confirm('Есть ли у вас депозит в банке?');
 deposit = Boolean(question3);
 
-let expenses1, 
-expenses2,
-amount1,
-amount2
+let expensesq = [],amountq = [] 
 
 
-    for(let i = 0; i < 4; i++) {
+    for(let i = 0; i < 2; i++) {
 
-
-        if (i === 0) {
-            let expensesq1 = prompt('Введите обязательную статью расходов?');
-            expenses1 = String(expensesq1);
-            console.log(expenses1);
-        } 
-        
-
-        if (i === 1) {
-            let amountq1 = prompt('Во сколько это обойдется?');
-            amount1 = Number(amountq1);
-             console.log(amount1);
-         }
-
-
-        if (i === 2) {
-            let expensesq2 = prompt('Введите обязательную статью расходов?');
-            expenses2 = String(expensesq2);
-            console.log(expenses2);
-        }
-
- 
-        if (i === 3) {
-            let amountq2 = prompt('Во сколько это обойдется?');
-            amount2 = Number(amountq2);
-            console.log(amount2);
-        }
- 
-   
+             expensesq[i] = prompt('Введите обязательную статью расходов?');
+             amountq[i] = +prompt('Во сколько это обойдется?');
+                console.log(expensesq[i]);
+                console.log(amountq[i]);
     }
- 
 
-let budgetMonth = money-(amount1+amount2);
+let budgetMonth = money-amountq[0 + 1];;
 if (budgetMonth < 0 ) {
     console.log('Вы должно быть в долгу!');
 }
@@ -130,6 +84,5 @@ if (budgetDay >= 1200) {
 }
 
 
-//3) https://skr.sh/s9OMSZ4kLb7 - достижение цели не считается при любых данных
 
 
