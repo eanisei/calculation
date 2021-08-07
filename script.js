@@ -119,6 +119,7 @@ let getStatusIncome = function() {
 
 // 6) budgetDay высчитываем исходя из значения месячного накопления (accumulatedMonth)
 
-    budgetDay = accumulatedMonth / 30;
+    budgetDay = Math.round(accumulatedMonth / 30 );
 
+    console.log(budgetDay);
 
