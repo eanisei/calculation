@@ -10,9 +10,14 @@ let period = 8;
 let budgetDay = money/30;
 
 
+let isNumber = function(n) {
+    return !isNaN(parseFloat(n) && isFinite(n));
+}
+
 let showTypeOf = function(data) {
     console.log(data, typeof(data));
 }
+
 
 showTypeOf(typeof money);
 showTypeOf(typeof income);
@@ -21,41 +26,47 @@ showTypeOf(typeof deposit);
  console.log('Период равен ' + period + ' месяцев');
  console.log('Цель - заработать ' + mission + ' крон');
 
-let question = prompt('Ваш месячный доход?');
+   let start = function() {
+       do {
+           money = prompt('Ваш месячный доход?');
+       }
+        while (!isNumber(money));
+   };
 
-   if (isNaN(question)) {
-       prompt('Пожалуйста, введите число, иначе будет ошибка!');
-   }
-
-   money = question;
+   start();
 
 
    let question2 = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
    addExpenses = question2;
-   console.log(addExpenses.split(',' || ', ' || ' ,'));
+   console.log(addExpenses.toLowerCase().split(',' || ', ' || ' ,'));
 
-let expensesq = [],amountq = [] 
 
+let expensesq = [];
+let sum;
 
 
 //  Функция возвращает сумму всех обязательных расходов за месяц
     function getExpensesMonth() {
+
         for(let i = 0; i < 2; i++) {
 
         expensesq[i] = prompt('Введите обязательную статью расходов?');
-        amountq[i] = +prompt('Во сколько это обойдется?');
-           console.log(expensesq[i]);
-           console.log(amountq[i]);
+        console.log(expensesq[i]);
+
+        do {
+            sum = prompt('Во сколько это обойдется?');
+        } while(isNaN(parseFloat(sum)));
+
 }
 
-    return amountq[0 + 1];
+    return sum += sum;
 }
 
 getExpensesMonth();
 //  Функция возвращает Накопления за месяц (Доходы минус расходы)
 
     function getAccumulatedMonth() {
-        return money -= amountq[0 + 1];
+        return money -= sum;
     }
 
     getAccumulatedMonth();  
@@ -68,7 +79,7 @@ getExpensesMonth();
 let getStatusIncome = function() {
 
     if (accumulatedMonth < 0 ) {
-        return ('Вы должно быть в долгу!');
+        return ('Цель не будет достигнута');
     }
     else {
         return ('Бюджет на месяц: ' + (accumulatedMonth));
@@ -113,6 +124,7 @@ let getStatusIncome = function() {
 // 4) Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
 
     function getTargetMonth() {
+        
         return accumulatedMonth /= period;
     }
 
@@ -121,5 +133,6 @@ let getStatusIncome = function() {
 
     budgetDay = Math.round(accumulatedMonth / 30 );
 
+    if(budgetDay > 0) {
     console.log(budgetDay);
-
+    }
