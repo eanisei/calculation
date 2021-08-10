@@ -42,7 +42,7 @@ showTypeOf(typeof deposit);
 
 
 let expensesq = [];
-let sum;
+let amountq = [];
 
 
 //  Функция возвращает сумму всех обязательных расходов за месяц
@@ -54,19 +54,19 @@ let sum;
         console.log(expensesq[i]);
 
         do {
-            sum = prompt('Во сколько это обойдется?');
-        } while(isNaN(parseFloat(sum)));
-
+            amountq[i] = prompt('Во сколько это обойдется?');
+        } while(isNaN(parseFloat(amountq[i])));
+        console.log(amountq[i]);
 }
 
-    return sum += sum;
+    return amountq[0 + 1];
 }
 
 getExpensesMonth();
 //  Функция возвращает Накопления за месяц (Доходы минус расходы)
 
     function getAccumulatedMonth() {
-        return money -= sum;
+        return money -= amountq[0 + 1];
     }
 
     getAccumulatedMonth();  
@@ -78,34 +78,30 @@ getExpensesMonth();
     
 let getStatusIncome = function() {
 
-    if (accumulatedMonth < 0 ) {
+    period =  mission / accumulatedMonth;
+
+    if(accumulatedMonth < 0 ) {
         return ('Цель не будет достигнута');
     }
-    else {
-        return ('Бюджет на месяц: ' + (accumulatedMonth));
-    }
-    
-    period =  mission / accumulatedMonth;
-    if(period < 0) {
-        return ('Нужно выйти в + !');
-    }
+
     else if(accumulatedMonth === 0) {
         return ('Нужно срочно копить денег и идти к достижению целей!'); 
     }
-    else {
+
+    else if(accumulatedMonth > 0) {
         return ('Цель будет достигнута за ' + Math.round(period) + ' месяцев(-а)');
     }
-    
+
     budgetDay = budgetMonth / 30;
-    
+
     if(budgetDay < 0 ) {
         return ('Вы должно быть в долгу!');
-    } 
-    else {
-        return ('Бюджет на день: ' + Math.floor(budgetDay));
     }
-    
-    
+
+    else {
+        return ('Бюджет на месяц: ' + (accumulatedMonth));
+    }
+
     
     if (budgetDay >= 1200) {
         console.log('У вас высокий уровень дохода');
@@ -131,7 +127,7 @@ let getStatusIncome = function() {
 
 // 6) budgetDay высчитываем исходя из значения месячного накопления (accumulatedMonth)
 
-    budgetDay = Math.round(accumulatedMonth / 30 );
+    budgetDay = Math.round(accumulatedMonth / 30);
 
     if(budgetDay > 0) {
     console.log(budgetDay);
